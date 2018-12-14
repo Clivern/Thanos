@@ -1,4 +1,4 @@
-PYTHON ?= python
+PYTHON ?= python3
 
 test:
 	$(PYTHON) data_structures.py
