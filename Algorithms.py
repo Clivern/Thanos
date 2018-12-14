@@ -38,18 +38,12 @@ class BinarySearch():
 class Test(unittest.TestCase):
 
     def test_binary_search(self):
-        self.assertEqual(BinarySearch([1,2,3,4,5,6,7,8,9,10], 30).Result(), -1)
-        self.assertEqual(BinarySearch([1,2,3,4,5,6,7,8,9,10], 20).Result(), -1)
-        self.assertEqual(BinarySearch([1,2,3,4,5,6,7,8,9,10], 1).Result(), 0)
-        self.assertEqual(BinarySearch([1,2,3,4,5,6,7,8,9,10], 2).Result(), 1)
-        self.assertEqual(BinarySearch([1,2,3,4,5,6,7,8,9,10], 3).Result(), 2)
-        self.assertEqual(BinarySearch([1,2,3,4,5,6,7,8,9,10], 4).Result(), 3)
-        self.assertEqual(BinarySearch([1,2,3,4,5,6,7,8,9,10], 5).Result(), 4)
-        self.assertEqual(BinarySearch([1,2,3,4,5,6,7,8,9,10], 6).Result(), 5)
-        self.assertEqual(BinarySearch([1,2,3,4,5,6,7,8,9,10], 7).Result(), 6)
-        self.assertEqual(BinarySearch([1,2,3,4,5,6,7,8,9,10], 8).Result(), 7)
-        self.assertEqual(BinarySearch([1,2,3,4,5,6,7,8,9,10], 9).Result(), 8)
-        self.assertEqual(BinarySearch([1,2,3,4,5,6,7,8,9,10], 10).Result(), 9)
+        arr = [x for x in range(100)];
+        for i in range(100):
+            self.assertEqual(BinarySearch(arr, i).Result(), i)
+        for i in range(100):
+            i += 200
+            self.assertEqual(BinarySearch(arr, i).Result(), -1)
 
 
 if __name__ == "__main__":
