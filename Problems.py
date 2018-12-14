@@ -3,7 +3,7 @@ import unittest
 """
 Implement an algorithm to determine if a string has all unique characters.
 """
-class ProblemA():
+class Problem1():
 
     def has_duplicates1(self, text):
         letters = {}
@@ -36,16 +36,16 @@ class Test(unittest.TestCase):
 
     def test_problem_a(self):
         for item in [('abcd'), ('s4fad'), ('')]:
-            self.assertFalse(ProblemA().has_duplicates1(item))
+            self.assertFalse(Problem1().has_duplicates1(item))
 
         for item in [('abacd'), ('s4f4ad'), ('dffgr')]:
-            self.assertTrue(ProblemA().has_duplicates1(item))
+            self.assertTrue(Problem1().has_duplicates1(item))
 
         for item in [('abcd'), ('s4fad'), ('')]:
-            self.assertFalse(ProblemA().has_duplicates2(item))
+            self.assertFalse(Problem1().has_duplicates2(item))
 
         for item in [('abacd'), ('s4f4ad'), ('dffgr')]:
-            self.assertTrue(ProblemA().has_duplicates2(item))
+            self.assertTrue(Problem1().has_duplicates2(item))
 
 if __name__ == "__main__":
     unittest.main()
