@@ -192,8 +192,94 @@ class Dicts():
     def get_dict(self):
         return self.elem
 
+"""
+Strings are immutable sequence of characters
+
+http://thomas-cokelaer.info/tutorials/python/strings.html
+https://docs.python.org/3/library/stdtypes.html#string-methods
+"""
 class Strings():
-    pass
+
+    def __init__(self, elem):
+        self.elem = elem
+
+    def get(self, index):
+        return self.elem[index]
+
+    def len(self):
+        return len(self.elem)
+
+    def count(self, char, start, end):
+        return self.elem.count(char, start, end)
+
+    def isdigit(self):
+        return self.elem.isdigit()
+
+    def isalpha(self):
+        return self.elem.isalpha()
+
+    def islower(self):
+        return self.elem.islower()
+
+    def isupper(self):
+        return self.elem.isupper()
+
+    def istitle(self):
+        return self.elem.istitle()
+
+    def isspace(self):
+        return self.elem.isspace()
+
+    def isalnum(self):
+        return self.elem.isalnum()
+
+    def title(self):
+        return self.elem.title()
+
+    def capitalize(self):
+        return self.elem.capitalize()
+
+    def lower(self):
+        return self.elem.lower()
+
+    def upper(self):
+        return self.elem.upper()
+
+    def swapcase(self):
+        return self.elem.swapcase()
+
+    def center(self, lenght, fillchar=" "):
+        return self.elem.center(lenght, fillchar)
+
+    def ljust(self, lenght, fillchar=" "):
+        return self.elem.ljust(lenght, fillchar)
+
+    def rjust(self, lenght, fillchar=" "):
+        return self.elem.rjust(lenght, fillchar)
+
+    def zfill(self, lenght):
+        return self.elem.zfill(lenght)
+
+    def strip(self, chars):
+        return self.elem.strip(chars)
+
+    def rstrip(self, chars):
+        return self.elem.rstrip(chars)
+
+    def lstrip(self, chars):
+        return self.elem.lstrip(chars)
+
+    def endswith(self, suffix, start, end):
+        return self.elem.endswith(suffix, start, end)
+
+    def subexist(self, sub):
+        return sub in self.elem
+
+    def find(self, sub, start, end):
+        return self.elem.find(sub, start, end)
+
+    def get_string(self):
+        return self.elem
 
 
 class Sets():
