@@ -196,8 +196,6 @@ class Problem8():
         return len(pairs)
 
 
-print(solution([1, 12 ,42,70,36,-4,43,15], [5,15,44,72,36,2,69,24]))
-   
 class Test(unittest.TestCase):
 
     def test_problem_1(self):
