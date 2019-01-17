@@ -166,7 +166,38 @@ class Problem7():
         ar.sort(reverse=True)
         return ar.count(ar[0])
 
+class Problem8():
+    
+    def solution(self, A, B):
+        # brute force solution
+        # holds intervals that overlap and don't overlap (disjoint)
+        pairs = []
+        # pairs that already overlap with another pairs
+        overlapped = []
+        i = 0
+        for item in A:
+            x, y = A[i], B[i]
+            h = i + 1
+            disjoint = True
+            for other in A[h:]:
+                z, k = A[h], B[h]
+                if ((x >= z and x <= k) or (y >= z and y <= k)) and ((z, k) not in overlapped):
+                    disjoint = False
+                    # add to overlapped pairs
+                    overlapped.append((z,k))
+                    # add the union to intervals that overlap
+                    pairs.append((min(x, z), max(y, k)))
+                h += 1
+            # Check if it is a disjoint and didn't overlap before
+            if disjoint and ((x,y) not in overlapped):
+                # add to the disjoint itervals
+                pairs.append((x,y))
+            i += 1
+        return len(pairs)
 
+
+print(solution([1, 12 ,42,70,36,-4,43,15], [5,15,44,72,36,2,69,24]))
+   
 class Test(unittest.TestCase):
 
     def test_problem_1(self):
@@ -198,6 +229,9 @@ class Test(unittest.TestCase):
 
     def test_problem_7(self):
         self.assertEqual(Problem7().birthdayCakeCandles([3, 2, 1, 3]), 2)
+        
+    def test_problem_8(self):
+        self.assertEqual(Problem8().solution([1, 12, 42, 70, 36, -4, 43, 15], [5, 15, 44, 72, 36, 2, 69, 24]), 5)
 
 
 if __name__ == "__main__":
