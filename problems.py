@@ -216,19 +216,16 @@ class Problem9():
 """
 OddOccurrencesInArray
 
-O(N**2) os need performance tuning
-
+https://www.programiz.com/java-programming/bitwise-operators
 https://app.codility.com/programmers/lessons/2-arrays/odd_occurrences_in_array/
 """
 class Problem10():
 
     def solution(self, A):
-        i = 0
-        for item in A:
-            if item not in A[i+1:] and item not in A[0:i]:
-                return item
-            i += 1
-        return False
+        result = 0
+        for number in A:
+            result ^= number
+        return result
 
 
 class Test(unittest.TestCase):
