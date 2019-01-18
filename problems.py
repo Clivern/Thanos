@@ -228,6 +228,29 @@ class Problem10():
         return result
 
 
+"""
+CyclicRotation
+
+https://app.codility.com/programmers/lessons/2-arrays/cyclic_rotation/
+"""
+class Problem11():
+
+    def solution(self, A, K):
+        # write your code in Python 3.6
+        i = 0
+        new = list(range(len(A)))
+        for item in A:
+            position = i+K
+            if position >= len(A):
+                while position >= len(A):
+                    position = position-len(A)
+                new[position] = item
+            else:
+                new[i+K] = item
+            i += 1
+        return new
+
+
 class Test(unittest.TestCase):
 
     def test_problem_1(self):
@@ -268,6 +291,9 @@ class Test(unittest.TestCase):
 
     def test_problem_10(self):
         self.assertEqual(Problem10().solution([9, 3, 9, 3, 9, 7, 9]), 7)
+
+    def test_problem_11(self):
+        self.assertEqual(Problem11().solution([1, 2, 3, 4, 5, 6, 7, 8], 1), [8, 1, 2, 3, 4, 5, 6, 7])
 
 
 if __name__ == "__main__":
