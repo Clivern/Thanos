@@ -213,6 +213,24 @@ class Problem9():
         return max_len
 
 
+"""
+OddOccurrencesInArray
+
+O(N**2) os need performance tuning
+
+https://app.codility.com/programmers/lessons/2-arrays/odd_occurrences_in_array/
+"""
+class Problem10():
+
+    def solution(self, A):
+        i = 0
+        for item in A:
+            if item not in A[i+1:] and item not in A[0:i]:
+                return item
+            i += 1
+        return False
+
+
 class Test(unittest.TestCase):
 
     def test_problem_1(self):
@@ -250,6 +268,9 @@ class Test(unittest.TestCase):
 
     def test_problem_9(self):
         self.assertEqual(Problem9().solution(529), 4)
+
+    def test_problem_10(self):
+        self.assertEqual(Problem10().solution([9, 3, 9, 3, 9, 7, 9]), 7)
 
 
 if __name__ == "__main__":
