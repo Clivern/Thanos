@@ -167,7 +167,7 @@ class Problem7():
         return ar.count(ar[0])
 
 class Problem8():
-    
+
     def solution(self, A, B):
         # brute force solution
         # holds intervals that overlap and don't overlap (disjoint)
@@ -194,6 +194,48 @@ class Problem8():
                 pairs.append((x,y))
             i += 1
         return len(pairs)
+
+
+"""
+Binary gap calculator
+
+A binary gap within a positive integer N is any maximal sequence of consecutive zeros that is surrounded by ones at both ends in the binary representation of N.
+For example, number 9 has binary representation 1001 and contains a binary gap of length 2. The number 529 has binary representation 1000010001 and contains two binary gaps: one of length 4 and one of length 3.
+The number 20 has binary representation 10100 and contains one binary gap of length 1.
+The number 15 has binary representation 1111 and has no binary gaps. The number 32 has binary representation 100000 and has no binary gaps.
+Write a function:
+
+that, given a positive integer N, returns the length of its longest binary gap. The function should return 0 if N doesn't contain a binary gap.
+
+For example, given N = 1041 the function should return 5, because N has binary representation 10000010001 and so its longest binary gap is of length 5. Given N = 32 the function should return 0, because N has binary representation '100000' and thus no binary gaps.
+
+Write an efficient algorithm for the following assumptions:
+
+N is an integer within the range [1..2,147,483,647].
+"""
+class Problem9():
+
+    def solution(self, N):
+        # write your code in Python 3.6
+        bin_rep = str(bin(N))
+        bin_rep = bin_rep.strip("0b")
+        max_zeros = 0
+        current_zeros = 0
+        start = False
+        end = False
+        for item in bin_rep:
+            if item == "1" and start:
+                end = True
+                start = True
+            elif item == "1" and not start:
+                start = True
+                end = False
+            if start and not end and item == "0":
+                current_zeros += 1
+            if end:
+                if current_zeros > max_zeros:
+                    max_zeros = current_zeros
+        return max_zeros
 
 
 class Test(unittest.TestCase):
@@ -227,9 +269,12 @@ class Test(unittest.TestCase):
 
     def test_problem_7(self):
         self.assertEqual(Problem7().birthdayCakeCandles([3, 2, 1, 3]), 2)
-        
+
     def test_problem_8(self):
         self.assertEqual(Problem8().solution([1, 12, 42, 70, 36, -4, 43, 15], [5, 15, 44, 72, 36, 2, 69, 24]), 5)
+
+    def test_problem_9(self):
+        self.assertEqual(Problem9().solution(529), 4)
 
 
 if __name__ == "__main__":
