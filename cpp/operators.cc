@@ -48,6 +48,26 @@ int main()
         std::cout << "r = " << r << "\n";
     }
 
+    for(int l=0; l <= 10; l++){
+        if(l == 4){
+            continue;
+        }
+        if(l == 9){
+            break;
+        }
+        std::cout << "l = " << l << "\n";
+    }
+
+    bool u = true;
+    int i = 0;
+    while(u){
+        i += 1;
+        std::cout << "i = " << i << "\n";
+        if(i == 10){
+            u = false;
+        }
+    }
+
     int a, b, c;
     std::cout << "Enter 3 Number\n";
     std::cin >> a >> b >> c;
