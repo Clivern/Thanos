@@ -9,7 +9,7 @@ Time Complexity
 Use of time complexity makes it easy to estimate the running time of a program but not the exact time or even an acccurate value
 (it depends on the compiler and the type of computer or speed of the processor).
 
-We concentarte on operations that performed the largest number of times. Such operations are referred to as dominant.
+We concentrate on operations that performed the largest number of times. Such operations are referred to as dominant.
 
 => Which is the dominant operation here?
     def dominant(n):
