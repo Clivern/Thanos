@@ -1,3 +1,6 @@
 [submodule "algorithms"]
 	path = algorithms
 	url = https://github.com/keon/algorithms.git
+[submodule "Java"]
+	path = Java
+	url = git@github.com:TheAlgorithms/Java.git
