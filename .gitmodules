@@ -4,3 +4,6 @@
 [submodule "Java"]
 	path = Java
 	url = https://github.com/TheAlgorithms/Java.git
+[submodule "ctci"]
+	path = ctci
+	url = https://github.com/careercup/CtCI-6th-Edition
