@@ -251,6 +251,158 @@ class Problem11():
         return new
 
 
+"""
+Given a list lst and a number N, create a new list
+that contains each number of the list at most N times without reordering.
+For example if N = 2, and the input is [1,2,3,1,2,1,2,3], you take [1,2,3,1,2],
+drop the next [1,2] since this would lead to 1 and 2 being in the result 3 times, and then take 3,
+which leads to [1,2,3,1,2,3]
+"""
+class Problem12():
+
+    def solution(self, arr, n):
+        result = []
+        for i in arr:
+            if result.count(i) < n:
+                result.append(i)
+        return result
+
+
+"""
+There is a parking lot with only one empty spot. Given the initial state
+of the parking lot and the final state. Each step we are only allowed to
+move a car
+out of its place and move it into the empty spot.
+The goal is to find out the least movement needed to rearrange
+the parking lot from the initial state to the final state.
+
+Say the initial state is an array:
+
+[1, 2, 3, 0, 4],
+where 1, 2, 3, 4 are different cars, and 0 is the empty spot.
+
+And the final state is
+
+[0, 3, 2, 1, 4].
+We can swap 1 with 0 in the initial array to get [0, 2, 3, 1, 4] and so on.
+Each step swap with 0 only.
+
+Edit:
+Now also prints the sequence of changes in states.
+Output of this example :-
+
+initial: [1, 2, 3, 0, 4]
+final:   [0, 3, 2, 1, 4]
+Steps =  4
+Sequence :
+0 2 3 1 4
+2 0 3 1 4
+2 3 0 1 4
+0 3 2 1 4
+"""
+class Problem13():
+
+    def solution(self, initial, final):
+        pass
+
+
+"""
+Rotate an array of n elements to the right by k steps.
+For example, with n = 7 and k = 3,
+the array [1,2,3,4,5,6,7] is rotated to [5,6,7,1,2,3,4].
+Note:
+Try to come up as many solutions as you can,
+there are at least 3 different ways to solve this problem.
+"""
+class Problem14():
+
+    def solution(self):
+        pass
+
+
+"""
+Given an array of integers, return indices of the two numbers
+such that they add up to a specific target.
+You may assume that each input would have exactly one solution,
+and you may not use the same element twice.
+Example:
+    Given nums = [2, 7, 11, 15], target = 9,
+    Because nums[0] + nums[1] = 2 + 7 = 9,
+    return (0, 1)
+"""
+class Problem15():
+
+    def solution(self):
+        pass
+
+
+"""
+Write an algorithm that takes an array and moves all of the zeros to the end,
+preserving the order of the other elements.
+    move_zeros([false, 1, 0, 1, 2, 0, 1, 3, "a"])
+    returns => [false, 1, 1, 2, 1, 3, "a", 0, 0]
+The time complexity of the below algorithm is O(n).
+"""
+class Problem16():
+
+    def solution(self):
+        pass
+
+
+"""
+Find the index of 0 to be replaced with 1 to get
+longest continuous sequence
+of 1s in a binary array.
+Returns index of 0 to be
+replaced with 1 to get longest
+continuous sequence of 1s.
+If there is no 0 in array, then
+it returns -1.
+e.g.
+let input array = [1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1]
+If we replace 0 at index 3 with 1, we get the longest continuous
+sequence of 1s in the array.
+So the function return => 3
+"""
+class Problem17():
+
+    def solution(self):
+        pass
+
+
+"""
+Given a string, find the length of the longest substring
+without repeating characters.
+Examples:
+Given "abcabcbb", the answer is "abc", which the length is 3.
+Given "bbbbb", the answer is "b", with the length of 1.
+Given "pwwkew", the answer is "wke", with the length of 3.
+Note that the answer must be a substring,
+"pwke" is a subsequence and not a substring.
+"""
+class Problem18():
+
+    def solution(self):
+        pass
+
+
+"""
+This algorithm receives an array and returns most_frequent_value
+Also, sometimes it is possible to have multiple 'most_frequent_value's,
+so this function returns a list. This result can be used to find a
+representative value in an array.
+This algorithm gets an array, makes a dictionary of it,
+ finds the most frequent count, and makes the result list.
+For example: top_1([1, 1, 2, 2, 3, 4]) will return [1, 2]
+(TL:DR) Get mathematical Mode
+Complexity: O(n)
+"""
+class Problem19():
+
+    def solution(self):
+        pass
+
+
 class Test(unittest.TestCase):
 
     def test_problem_1(self):
@@ -294,6 +446,9 @@ class Test(unittest.TestCase):
 
     def test_problem_11(self):
         self.assertEqual(Problem11().solution([1, 2, 3, 4, 5, 6, 7, 8], 1), [8, 1, 2, 3, 4, 5, 6, 7])
+
+    def test_problem_12(self):
+        self.assertEqual(Problem12().solution([1,2,3,1,2,1,2,3], 2), [1, 2, 3, 1, 2, 3])
 
 
 if __name__ == "__main__":
