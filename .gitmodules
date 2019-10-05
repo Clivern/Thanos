@@ -7,3 +7,6 @@
 [submodule "ctci"]
 	path = ctci
 	url = https://github.com/careercup/CtCI-6th-Edition
+[submodule "hrs"]
+	path = hrs
+	url = https://github.com/RodneyShag/HackerRank_solutions.git
