@@ -10,3 +10,6 @@
 [submodule "hrs"]
 	path = hrs
 	url = https://github.com/RodneyShag/HackerRank_solutions.git
+[submodule "leetc"]
+	path = leetc
+	url = https://github.com/RodneyShag/LeetCode_solutions.git
