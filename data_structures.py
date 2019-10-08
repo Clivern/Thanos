@@ -304,6 +304,7 @@ class SListNode():
     def __repr__(self):
         return repr(self.data)
 
+
 class DListNode():
     """
     A node in a doubly-linked list.
@@ -315,6 +316,7 @@ class DListNode():
 
     def __repr__(self):
         return repr(self.data)
+
 
 class SinglyLinkedList:
 
@@ -419,7 +421,8 @@ class SinglyLinkedList:
 
     def remove_duplicates(self):
         """
-        Your removeDuplicates function should return the head of the updated linked list. after removing duplicates
+        Your remove_duplicates function should return the head of the updated linked list. after removing duplicates
+
         https://www.hackerrank.com/challenges/30-linked-list-deletion/problem
         """
         if not self.head:
@@ -431,6 +434,7 @@ class SinglyLinkedList:
             else:
                 n = n.next
         return self.head
+
 
 class DoublyLinkedList():
 
