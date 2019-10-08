@@ -7,3 +7,10 @@ https://github.com/TheAlgorithms/Python
 https://codesays.com/
 https://github.com/keon/algorithms
 """
+
+"""
+In Progress
+-----------
+https://www.hackerrank.com/domains/data-structures
+https://www.hackerrank.com/domains/tutorials/30-days-of-code
+"""
