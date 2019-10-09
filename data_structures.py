@@ -5,6 +5,10 @@ import bisect
 """
 https://docs.python.org/3/tutorial/datastructures.html?highlight=lists
 http://thomas-cokelaer.info/tutorials/python/lists.html
+
+Python’s built-in list type makes a decent stack data structure as it supports push and pop operations in amortized O(1) time.
+https://docs.python.org/3/tutorial/datastructures.html#using-lists-as-stacks
+https://docs.python.org/3/tutorial/datastructures.html#using-lists-as-queues
 """
 class Lists():
 
