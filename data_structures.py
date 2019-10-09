@@ -9,6 +9,7 @@ http://thomas-cokelaer.info/tutorials/python/lists.html
 Python’s built-in list type makes a decent stack data structure as it supports push and pop operations in amortized O(1) time.
 https://docs.python.org/3/tutorial/datastructures.html#using-lists-as-stacks
 https://docs.python.org/3/tutorial/datastructures.html#using-lists-as-queues
+https://www.hackerrank.com/challenges/30-queues-stacks/problem
 """
 class Lists():
 
@@ -83,6 +84,35 @@ class Lists():
 
     def get_list(self):
         return self.elem
+
+
+class Queue():
+
+    def __init__(self):
+        self.queue = []
+
+    def enqueueCharacter(self, char):
+        self.queue.insert(0, char)
+
+    def dequeueCharacter(self):
+        return self.queue.pop()
+
+    def __repr__(self):
+        return str(self.queue)
+
+class Stack():
+
+    def __init__(self):
+        self.stack = []
+
+    def pushCharacter(self, char):
+        self.stack.append(char)
+
+    def popCharacter(self):
+        return self.stack.pop()
+
+    def __repr__(self):
+        return str(self.stack)
 
 """
 A tuple is similar to a list. The difference between the two is that we cannot change the elements of a tuple once
@@ -616,6 +646,22 @@ class Test(unittest.TestCase):
         elist = Lists(["A", "B", "C", "E"])
         self.assertEqual(elist.bisect("D"), None)
         self.assertEqual(elist.get_list(), ["A", "B", "C", "D", "E"])
+
+    def test_queue(self):
+        queue = Queue()
+        queue.enqueueCharacter("A")
+        queue.enqueueCharacter("B")
+        queue.enqueueCharacter("C")
+        self.assertEqual(queue.dequeueCharacter(), "A")
+        self.assertEqual(str(queue), "['C', 'B']")
+
+    def test_stack(self):
+        stack = Stack()
+        stack.pushCharacter("A")
+        stack.pushCharacter("B")
+        stack.pushCharacter("C")
+        self.assertEqual(stack.popCharacter(), "C")
+        self.assertEqual(str(stack), "['A', 'B']")
 
     def test_tuples(self):
         atuple = Tuples((1, 2, 3, 4, 5))
