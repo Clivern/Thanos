@@ -1,5 +1,6 @@
 import unittest
 import bisect
+from heapq import *
 
 
 """
@@ -100,6 +101,7 @@ class Queue():
     def __repr__(self):
         return str(self.queue)
 
+
 class Stack():
 
     def __init__(self):
@@ -113,6 +115,44 @@ class Stack():
 
     def __repr__(self):
         return str(self.stack)
+
+
+class Heap():
+
+    def __init__(self, from_list=[]):
+        self.heap = []
+
+    def heappush(self, item):
+        """Push the value item onto the heap, maintaining the heap invariant."""
+        heappush(self.heap, item)
+
+    def heappop(self):
+        """Pop and return the smallest item from the heap, maintaining the heap invariant."""
+        return heappop(self.heap)
+
+    def heappushpop(self, item):
+        """Push item on the heap, then pop and return the smallest item from the heap."""
+        return heappushpop(self.heap, item)
+
+    def heapreplace(self, item):
+        """
+        Pop and return the smallest item from the heap, and also push the new item. The heap size doesn’t change.
+        If the heap is empty, IndexError is raised.
+        """
+        return heapreplace(self.heap, item)
+
+    def size(self):
+        return len(self.heap)
+
+    def heapsort(self):
+        h = []
+        for value in self.heap:
+            heappush(h, value)
+        self.heap = [heappop(h) for i in range(len(h))]
+
+    def __repr__(self):
+        return str(self.heap)
+
 
 """
 A tuple is similar to a list. The difference between the two is that we cannot change the elements of a tuple once
@@ -226,6 +266,7 @@ class Dicts():
     def get_dict(self):
         return self.elem
 
+
 """
 Strings are immutable sequence of characters
 
@@ -314,7 +355,6 @@ class Strings():
 
     def get_string(self):
         return self.elem
-
 
 
 """
@@ -576,10 +616,6 @@ class Collections():
     pass
 
 
-class Heapq():
-    pass
-
-
 class Test(unittest.TestCase):
 
     def test_dicts(self):
@@ -683,6 +719,28 @@ class Test(unittest.TestCase):
         btuple = Tuples((True, True, True, False))
         self.assertEqual(btuple.any(), True)
         self.assertEqual(btuple.all(), False)
+
+    def test_heap(self):
+        heap = Heap()
+        heap.heappush("E")
+        heap.heappush("D")
+        heap.heappush("C")
+        heap.heappush("B")
+        self.assertEqual(heap.heappop(), "B")
+        self.assertEqual(heap.heappop(), "C")
+        self.assertEqual(heap.size(), 2)
+        self.assertEqual(heap.heappushpop("A"), "A") # Will add A and then remove it again
+        self.assertEqual(str(heap), "['D', 'E']")
+
+        heap1 = Heap()
+        heap1.heappush(9)
+        heap1.heappush(2)
+        heap1.heappush(1)
+        heap1.heappush(7)
+        heap1.heapsort()
+        self.assertEqual(heap1.size(), 4)
+        self.assertEqual(heap1.heapreplace(0), 1) # will remove smallest 1 then add 0
+        self.assertEqual(str(heap1), '[0, 2, 7, 9]')
 
 
 if __name__ == "__main__":
