@@ -119,7 +119,7 @@ class Stack():
 
 class Heap():
 
-    def __init__(self, from_list=[]):
+    def __init__(self):
         self.heap = []
 
     def heappush(self, item):
