@@ -101,6 +101,59 @@ ORDER BY COMPANY_CODE;
 # Aggregation
 # ###########
 
+# https://www.hackerrank.com/challenges/revising-aggregations-the-count-function/problem
+SELECT COUNT(*) FROM CITY WHERE POPULATION > 100000;
+
+# https://www.hackerrank.com/challenges/revising-aggregations-sum/problem
+SELECT SUM(POPULATION) FROM CITY WHERE DISTRICT = "California";
+
+# https://www.hackerrank.com/challenges/revising-aggregations-the-average-function/problem
+SELECT AVG(POPULATION) FROM CITY WHERE DISTRICT = "California";
+
+# https://www.hackerrank.com/challenges/average-population/problem
+SELECT FLOOR(AVG(POPULATION)) FROM CITY;
+
+# https://www.hackerrank.com/challenges/japan-population/problem
+SELECT SUM(POPULATION) FROM CITY WHERE COUNTRYCODE = "JPN";
+
+# https://www.hackerrank.com/challenges/population-density-difference/problem
+SELECT MAX(POPULATION) - MIN(POPULATION) FROM CITY LIMIT 1;
+
+# https://www.hackerrank.com/challenges/earnings-of-employees/problem
+SELECT MAX(SALARY*MONTHS), COUNT(*) FROM EMPLOYEE WHERE (SALARY*MONTHS) = (SELECT MAX(SALARY*MONTHS) FROM EMPLOYEE);
+
+# https://www.hackerrank.com/challenges/weather-observation-station-2/problem
+SELECT ROUND(SUM(LAT_N), 2), ROUND(SUM(LONG_W), 2) FROM STATION;
+
+# https://www.hackerrank.com/challenges/weather-observation-station-13/problem
+SELECT ROUND(SUM(LAT_N), 4) FROM STATION WHERE LAT_N > 38.7880 AND LAT_N < 137.2345;
+
+# https://www.hackerrank.com/challenges/weather-observation-station-14/problem
+SELECT ROUND(MAX(LAT_N), 4) FROM STATION WHERE LAT_N < 137.2345;
+
+# https://www.hackerrank.com/challenges/weather-observation-station-15/problem
+SELECT ROUND(LONG_W, 4) FROM STATION WHERE LAT_N IN (SELECT MAX(LAT_N) FROM STATION WHERE LAT_N < 137.2345);
+
+# https://www.hackerrank.com/challenges/weather-observation-station-16/problem
+SELECT ROUND(MIN(LAT_N), 4) FROM STATION WHERE LAT_N > 38.7780;
+
+# https://www.hackerrank.com/challenges/weather-observation-station-17/problem
+SELECT ROUND(LONG_W, 4) FROM STATION WHERE LAT_N IN (SELECT MIN(LAT_N) FROM STATION WHERE LAT_N > 38.7780);
+
+# https://www.hackerrank.com/challenges/weather-observation-station-18/problem
+SELECT ROUND((MAX(LAT_N) - MIN(LAT_N))+(MAX(LONG_W) - MIN(LONG_W)), 4) FROM STATION;
+
+# https://www.hackerrank.com/challenges/weather-observation-station-19/problem
+SELECT ROUND(SQRT(POWER(MIN(LAT_N)-MAX(LAT_N),2)+POWER(MIN(LONG_W)-MAX(LONG_W),2)),4) FROM STATION;
+
+# https://www.hackerrank.com/challenges/the-blunder/problem
+SELECT CEIL(AVG(SALARY) - AVG(REPLACE(SALARY, '0', ''))) FROM EMPLOYEES;
+
+# https://www.hackerrank.com/challenges/weather-observation-station-20/problem
+SELECT ROUND(S.LAT_N, 4) FROM STATION S
+    WHERE
+        (SELECT COUNT(LAT_N) FROM STATION WHERE LAT_N > S.LAT_N)
+        = (SELECT COUNT(LAT_N) FROM STATION WHERE LAT_N < S.LAT_N);
 
 
 # ##########
