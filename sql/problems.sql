@@ -158,12 +158,56 @@ SELECT ROUND(S.LAT_N, 4) FROM STATION S
 
 # ##########
 # Basic Join
+#
+# https://www.w3schools.com/sql/sql_join.asp
 # ##########
 
+# https://www.hackerrank.com/challenges/asian-population/problem
+SELECT SUM(CI.POPULATION) FROM COUNTRY CO INNER JOIN CITY CI ON CO.CODE = CI.COUNTRYCODE WHERE CO.CONTINENT = "asia";
+
+# https://www.hackerrank.com/challenges/african-cities/problem
+SELECT CI.NAME FROM COUNTRY CO INNER JOIN CITY CI ON CO.CODE = CI.COUNTRYCODE WHERE CO.CONTINENT = "Africa";
+
+# https://www.hackerrank.com/challenges/average-population-of-each-continent/problem
+SELECT CO.CONTINENT, FLOOR(AVG(CI.POPULATION)) FROM COUNTRY CO INNER JOIN CITY CI ON CO.CODE = CI.COUNTRYCODE GROUP BY CO.CONTINENT;
+
+# https://www.hackerrank.com/challenges/the-report/problem ???
+SELECT IF(GRADES.GRADE>=8, STUDENTS.NAME, NULL),GRADES.GRADE, STUDENTS.MARKS
+FROM GRADES, STUDENTS
+WHERE STUDENTS.MARKS BETWEEN GRADES.MIN_MARK AND GRADES.MAX_MARK
+ORDER BY GRADES.GRADE DESC, STUDENTS.NAME;
+
+# https://www.hackerrank.com/challenges/full-score/problem ???
+SELECT H.HACKER_ID, H.NAME
+FROM HACKERS H
+INNER JOIN SUBMISSIONS S
+ON H.HACKER_ID = S.HACKER_ID
+INNER JOIN CHALLENGES C
+ON S.CHALLENGE_ID = C.CHALLENGE_ID
+INNER JOIN DIFFICULTY D
+ON C.DIFFICULTY_LEVEL = D.DIFFICULTY_LEVEL
+WHERE S.SCORE = D.SCORE AND C.DIFFICULTY_LEVEL = D.DIFFICULTY_LEVEL
+GROUP BY H.HACKER_ID, H.NAME
+HAVING COUNT(S.HACKER_ID) > 1
+ORDER BY COUNT(S.HACKER_ID) DESC, S.HACKER_ID ASC;
+
+# https://www.hackerrank.com/challenges/harry-potter-and-wands/problem ???
+SELECT W.ID, P.AGE, W.COINS_NEEDED, W.POWER
+FROM WANDS AS W
+JOIN WANDS_PROPERTY AS P
+ON (W.CODE = P.CODE)
+WHERE P.IS_EVIL = 0 AND W.COINS_NEEDED = (SELECT MIN(COINS_NEEDED)
+                                          FROM WANDS AS X
+                                          JOIN WANDS_PROPERTY AS Y
+                                          ON (X.CODE = Y.CODE)
+                                          WHERE X.POWER = W.POWER AND Y.AGE = P.AGE)
+ORDER BY W.POWER DESC, P.AGE DESC;
 
 
 # #############
 # Advanced Join
+#
+# https://www.w3schools.com/sql/sql_join.asp
 # #############
 
 
