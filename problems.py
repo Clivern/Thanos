@@ -489,6 +489,19 @@ class Problem21():
         return '[' + ', '.join(nodes) + ']'
 
     def reverse(self, head):
+        #
+        # https://www.hackerrank.com/challenges/reverse-a-doubly-linked-list/problem
+        #
+        # def reverse(head):
+        #     n = None
+        #     while head:
+        #         node = DoublyLinkedListNode(head.data)
+        #         node.prev = head.prev
+        #         node.next = n
+        #         n = node
+        #         head = head.next
+        #     return n
+        #
         if not head:
             return None
         n = None
