@@ -421,6 +421,149 @@ class Problem20():
         pass
 
 
+"""
+Linked Lists
+
+A linked list is an ordered collection of values.
+Linked lists are similar to arrays in the sense that they contain objects in a linear order.
+However they differ from arrays in their memory layout.
+
+Arrays are contiguous data structures and they’re composed of fixed-size data records stored in adjoining blocks of memory.
+Linked lists, however, are made up of data records linked together by pointers.
+
+https://dbader.org/blog/python-linked-list
+"""
+class SListNode():
+
+    def __init__(self, data=None, next=None):
+        self.data = data
+        self.next = next
+
+    def __repr__(self):
+        return str(self.data)
+
+
+class DListNode():
+
+    def __init__(self, data=None, prev=None, next=None):
+        self.data = data
+        self.prev = prev
+        self.next = next
+
+    def __repr__(self):
+        return str(self.data)
+
+class Problem21():
+
+    def append(self, head, data):
+        if not head:
+            return SListNode(data)
+        curr = head
+        while curr.next:
+            curr = curr.next
+        curr.next = SListNode(data)
+        return head
+
+    def insert(self, head, data):
+        if not head:
+            return SListNode(data)
+        curr = head
+        while curr.next:
+            curr = curr.next
+        curr.next = SListNode(data)
+        return head
+
+    def prepend(self, head, data):
+        if not head:
+            return SListNode(data)
+        node = SListNode(data)
+        node.next = head
+        return node
+
+    def repr(self, head):
+        nodes = []
+        curr = head
+        while curr:
+            nodes.append(str(curr))
+            curr = curr.next
+        return '[' + ', '.join(nodes) + ']'
+
+    def reverse(self, head):
+        if not head:
+            return None
+        n = None
+        curr = head
+        while curr:
+            node = SListNode(curr.data)
+            node.next = n
+            n = node
+            curr = curr.next
+        return n
+
+    def remove_duplicates(self, head):
+        if not head:
+            return None
+        curr = head
+        while curr.next:
+            if curr.data == curr.next.data:
+                curr.next = curr.next.next
+            else:
+                curr = curr.next
+        return head
+
+    def remove_data(self, head, data):
+        if not head:
+            return None
+        curr = head
+        if curr.data == data:
+            return head.next if head.next else None
+        while curr.next:
+            if curr.next.data == data:
+                if curr.next.next:
+                    curr.next = curr.next.next
+                else:
+                    curr.next = None
+                break
+            curr = curr.next
+        return head
+
+    def remove_position(self, head, position, start=0):
+        if not head:
+            return None
+        curr = head
+        if start == position:
+            if head.next:
+                return head.next
+            else:
+                return None
+        start += 1
+        while curr.next:
+            if position == start:
+                if curr.next.next:
+                    curr.next = curr.next.next
+                else:
+                    curr.next = None
+                break
+            start += 1
+            curr = curr.next
+        return head
+
+    def insert_at_position(self, head, data, position, start=0):
+        pass
+
+    def find_data_position(self, head, data, start=0):
+        if not head:
+            return -1
+        curr = head
+        while curr:
+            if curr.data == data:
+                return start
+            start += 1
+            curr = curr.next
+        return -1
+
+
+
 class Test(unittest.TestCase):
 
     def test_problem_1(self):
@@ -467,6 +610,71 @@ class Test(unittest.TestCase):
 
     def test_problem_12(self):
         self.assertEqual(Problem12().solution([1,2,3,1,2,1,2,3], 2), [1, 2, 3, 1, 2, 3])
+
+    def test_problem_21(self):
+        llist = None
+        llist = Problem21().append(llist, 1) # add to end
+        llist = Problem21().insert(llist, 2) # add to end
+        llist = Problem21().append(llist, 3) # add to end
+        llist = Problem21().prepend(llist, 0) # add to start
+
+        self.assertEqual(Problem21().repr(llist), "[0, 1, 2, 3]")
+        self.assertEqual(Problem21().repr(Problem21().reverse(llist)), "[3, 2, 1, 0]")
+
+        # Remove duplicates
+        llist = None
+        llist = Problem21().append(llist, 1)
+        llist = Problem21().append(llist, 1)
+        llist = Problem21().append(llist, 2)
+        llist = Problem21().append(llist, 3)
+        llist = Problem21().append(llist, 4)
+        llist = Problem21().append(llist, 4)
+        llist = Problem21().append(llist, 4)
+        llist = Problem21().append(llist, 5)
+        self.assertEqual(Problem21().repr(llist), "[1, 1, 2, 3, 4, 4, 4, 5]")
+        llist = Problem21().remove_duplicates(llist)
+        self.assertEqual(Problem21().repr(llist), "[1, 2, 3, 4, 5]")
+
+        # remove value
+        llist = None
+        llist = Problem21().append(llist, 1) # add to end
+        llist = Problem21().insert(llist, 2) # add to end
+        llist = Problem21().append(llist, 3) # add to end
+        llist = Problem21().prepend(llist, 0) # add to start
+        self.assertEqual(Problem21().repr(llist), "[0, 1, 2, 3]")
+        llist = Problem21().remove_data(llist, 0)
+        self.assertEqual(Problem21().repr(llist), "[1, 2, 3]")
+        llist = Problem21().remove_data(llist, 1)
+        self.assertEqual(Problem21().repr(llist), "[2, 3]")
+        llist = Problem21().remove_data(llist, 2)
+        self.assertEqual(Problem21().repr(llist), "[3]")
+        llist = Problem21().remove_data(llist, 3)
+        self.assertEqual(Problem21().repr(llist), "[]")
+
+        llist = None
+        llist = Problem21().append(llist, 1) # add to end
+        llist = Problem21().insert(llist, 2) # add to end
+        llist = Problem21().append(llist, 3) # add to end
+        llist = Problem21().prepend(llist, 0) # add to start
+        self.assertEqual(Problem21().find_data_position(llist, 0), 0)
+        self.assertEqual(Problem21().find_data_position(llist, 1), 1)
+        self.assertEqual(Problem21().find_data_position(llist, 2), 2)
+        self.assertEqual(Problem21().find_data_position(llist, 3), 3)
+        self.assertEqual(Problem21().find_data_position(llist, 4), -1)
+
+        llist = None
+        llist = Problem21().append(llist, 1) # add to end
+        llist = Problem21().insert(llist, 2) # add to end
+        llist = Problem21().append(llist, 3) # add to end
+        llist = Problem21().prepend(llist, 0) # add to start
+        llist = Problem21().remove_position(llist, 3)
+        self.assertEqual(Problem21().repr(llist), "[0, 1, 2]")
+        llist = Problem21().remove_position(llist, 2)
+        self.assertEqual(Problem21().repr(llist), "[0, 1]")
+        llist = Problem21().remove_position(llist, 1)
+        self.assertEqual(Problem21().repr(llist), "[0]")
+        llist = Problem21().remove_position(llist, 0)
+        self.assertEqual(Problem21().repr(llist), "[]")
 
 
 if __name__ == "__main__":
