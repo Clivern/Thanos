@@ -5,10 +5,10 @@ TERMGRAPH ?= termgraph
 
 test:
 	$(PIP) install termgraph
-	$(PYTHON) data_structures.py
-	$(PYTHON) algorithms.py
-	$(PYTHON) problems.py
-	$(PYTHON) visualize_time_complexity.py
+	$(PYTHON) Python/data_structures.py
+	$(PYTHON) Python/algorithms.py
+	$(PYTHON) Python/problems.py
+	$(PYTHON) Python/visualize_time_complexity.py
 	$(TERMGRAPH) visualize_constant_time_complexity.dat
 	$(TERMGRAPH) visualize_logarithmic_time_complexity.dat
 	$(TERMGRAPH) visualize_linear_time_complexity.dat
