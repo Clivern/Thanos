@@ -576,6 +576,15 @@ class Problem21():
         return -1
 
 
+"""
+Key Based Sort
+"""
+
+class Problem22():
+
+    def sort(self, data, callable):
+        return sorted(data, key=callable)
+
 
 class Test(unittest.TestCase):
 
@@ -688,6 +697,56 @@ class Test(unittest.TestCase):
         self.assertEqual(Problem21().repr(llist), "[0]")
         llist = Problem21().remove_position(llist, 0)
         self.assertEqual(Problem21().repr(llist), "[]")
+
+    def test_problem_22(self):
+        data = [
+            {"id": 3, "title": "B", "rate": 3},
+            {"id": 2, "title": "A", "rate": 9},
+            {"id": 1, "title": "C", "rate": 8},
+            {"id": 9, "title": "E", "rate": 5},
+            {"id": 7, "title": "D", "rate": 4},
+            {"id": 8, "title": "F", "rate": 6},
+            {"id": 6, "title": "G", "rate": 7},
+            {"id": 5, "title": "H", "rate": 1},
+            {"id": 4, "title": "I", "rate": 2},
+            {"id": 10, "title": "J", "rate": 10}
+        ]
+        self.assertEqual(Problem22().sort(data, lambda x: x['id']), [
+            {'id': 1, 'title': 'C', 'rate': 8},
+            {'id': 2, 'title': 'A', 'rate': 9},
+            {'id': 3, 'title': 'B', 'rate': 3},
+            {'id': 4, 'title': 'I', 'rate': 2},
+            {'id': 5, 'title': 'H', 'rate': 1},
+            {'id': 6, 'title': 'G', 'rate': 7},
+            {'id': 7, 'title': 'D', 'rate': 4},
+            {'id': 8, 'title': 'F', 'rate': 6},
+            {'id': 9, 'title': 'E', 'rate': 5},
+            {'id': 10, 'title': 'J', 'rate': 10}
+        ])
+        self.assertEqual(Problem22().sort(data, lambda x: x['title']), [
+            {'id': 2, 'title': 'A', 'rate': 9},
+            {'id': 3, 'title': 'B', 'rate': 3},
+            {'id': 1, 'title': 'C', 'rate': 8},
+            {'id': 7, 'title': 'D', 'rate': 4},
+            {'id': 9, 'title': 'E', 'rate': 5},
+            {'id': 8, 'title': 'F', 'rate': 6},
+            {'id': 6, 'title': 'G', 'rate': 7},
+            {'id': 5, 'title': 'H', 'rate': 1},
+            {'id': 4, 'title': 'I', 'rate': 2},
+            {'id': 10, 'title': 'J', 'rate': 10}
+        ])
+        self.assertEqual(Problem22().sort(data, lambda x: x['rate']), [
+            {'id': 5, 'title': 'H', 'rate': 1},
+            {'id': 4, 'title': 'I', 'rate': 2},
+            {'id': 3, 'title': 'B', 'rate': 3},
+            {'id': 7, 'title': 'D', 'rate': 4},
+            {'id': 9, 'title': 'E', 'rate': 5},
+            {'id': 8, 'title': 'F', 'rate': 6},
+            {'id': 6, 'title': 'G', 'rate': 7},
+            {'id': 1, 'title': 'C', 'rate': 8},
+            {'id': 2, 'title': 'A', 'rate': 9},
+            {'id': 10, 'title': 'J', 'rate': 10}
+        ])
 
 
 if __name__ == "__main__":
