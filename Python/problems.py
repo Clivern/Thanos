@@ -582,8 +582,8 @@ Key Based Sort
 
 class Problem22():
 
-    def sort(self, data, callable):
-        return sorted(data, key=callable)
+    def sort(self, data, callable, reverse=False):
+        return sorted(data, key=callable, reverse=reverse)
 
 
 class Test(unittest.TestCase):
@@ -746,6 +746,18 @@ class Test(unittest.TestCase):
             {'id': 1, 'title': 'C', 'rate': 8},
             {'id': 2, 'title': 'A', 'rate': 9},
             {'id': 10, 'title': 'J', 'rate': 10}
+        ])
+        self.assertEqual(Problem22().sort(data, lambda x: x['rate'], True), [
+            {'id': 10, 'title': 'J', 'rate': 10},
+            {'id': 2, 'title': 'A', 'rate': 9},
+            {'id': 1, 'title': 'C', 'rate': 8},
+            {'id': 6, 'title': 'G', 'rate': 7},
+            {'id': 8, 'title': 'F', 'rate': 6},
+            {'id': 9, 'title': 'E', 'rate': 5},
+            {'id': 7, 'title': 'D', 'rate': 4},
+            {'id': 3, 'title': 'B', 'rate': 3},
+            {'id': 4, 'title': 'I', 'rate': 2},
+            {'id': 5, 'title': 'H', 'rate': 1}
         ])
 
 
