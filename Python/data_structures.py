@@ -4,6 +4,7 @@ from heapq import *
 
 
 """
+https://www.freecodecamp.org/news/the-top-data-structures-you-should-know-for-your-next-coding-interview-36af0831f5e3/
 https://docs.python.org/3/tutorial/datastructures.html?highlight=lists
 http://thomas-cokelaer.info/tutorials/python/lists.html
 
