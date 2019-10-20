@@ -605,6 +605,47 @@ class DoublyLinkedList():
         self.head = prev_node.prev
 
 
+""""
+Trees
+
+Trees are well known as a non-linear Data Structure. It doesn’t store data in a linear way. It organizes data in a hierarchical way.
+
+- Root: the topmost node of the tree
+- Edge: the link between 2 nodes
+- Child: a node that has a parent node
+- Parent: a node that has an edge to a child node
+- Leaf: a node that does not have a child node in the tree
+- Height: The height of a tree is the length of the longest path to a leaf.
+- Depth: The depth of a node is the length of the path to its root.
+
+Binary tree is a tree data structure in which each node has at most two children, which are referred to as the left child and the right child
+
+Ref --> https://medium.com/the-renaissance-developer/learning-tree-data-structure-27c6bb363051
+"""
+class BinaryTree:
+
+    def __init__(self, value):
+        self.value = value
+        self.left_child = None
+        self.right_child = None
+
+    def insert_left(self, value):
+        if self.left_child:
+            node = BinaryTree(value)
+            node.left_child = self.left_child
+            self.left_child = node
+        else:
+            self.left_child = BinaryTree(value)
+
+    def insert_right(self, value):
+        if self.right_child:
+            node = BinaryTree(value)
+            node.right_child = self.right_child
+            self.right_child = node
+        else:
+            self.right_child = BinaryTree(value)
+
+
 class Sets():
     pass
 
