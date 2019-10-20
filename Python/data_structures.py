@@ -645,6 +645,49 @@ class BinaryTree:
         else:
             self.right_child = BinaryTree(value)
 
+    """
+    DFS: Depth-First Search — “is an algorithm for traversing or searching tree data structure.
+        One starts at the root and explores as far as possible along each branch before backtracking.”
+    """
+    def pre_order(self):
+        """
+        Print the current node’s value. Go to the left child and print it. Backtrack.
+        Go to the right child and print it.
+        """
+        print(self.value)
+
+        if self.left_child:
+            self.left_child.pre_order()
+
+        if self.right_child:
+            self.right_child.pre_order()
+
+    def in_order(self):
+        """
+        We go way down to the left child and print it first. Backtrack and print it.
+        And go way down to the right child and print it.
+        """
+        if self.left_child:
+            self.left_child.in_order()
+
+        print(self.value)
+
+        if self.right_child:
+            self.right_child.in_order()
+
+    def post_order(self):
+        """
+        We go way down to the left child and print it first. Backtrack.
+        Go way down to the right child. Print it second. Backtrack and print it.
+        """
+        if self.left_child:
+            self.left_child.post_order()
+
+        if self.right_child:
+            self.right_child.post_order()
+
+        print(self.value)
+
 
 class Sets():
     pass
