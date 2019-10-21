@@ -634,7 +634,6 @@ class Problem24():
             return -1
 
 
-
 class Test(unittest.TestCase):
 
     def test_problem_1(self):
