@@ -587,9 +587,11 @@ class Problem22():
 
 
 """
-Tree: Preorder Traversal
+Tree: Preorder, Inorder and Postorder Traversal
 
 https://www.hackerrank.com/challenges/tree-preorder-traversal/problem
+https://www.hackerrank.com/challenges/tree-inorder-traversal/problem
+https://www.hackerrank.com/challenges/tree-postorder-traversal/problem
 """
 class Problem23():
 
