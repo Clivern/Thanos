@@ -596,22 +596,22 @@ class Problem23():
     def preOrder(self, root):
         print(str(root.info) + " ", end="")
         if root.left:
-            preOrder(root.left)
+            self.preOrder(root.left)
         if root.right:
-            preOrder(root.right)
+            self.preOrder(root.right)
 
     def inOrder(self, root):
         if root.left:
-            preOrder(root.left)
+            self.inOrder(root.left)
         print(str(root.info) + " ", end="")
         if root.right:
-            preOrder(root.right)
+            self.inOrder(root.right)
 
     def postOrder(self, root):
         if root.left:
-            preOrder(root.left)
+            self.postOrder(root.left)
         if root.right:
-            preOrder(root.right)
+            self.postOrder(root.right)
         print(str(root.info) + " ", end="")
 
 
