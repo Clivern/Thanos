@@ -586,6 +586,35 @@ class Problem22():
         return sorted(data, key=callable, reverse=reverse)
 
 
+"""
+Tree: Preorder Traversal
+
+https://www.hackerrank.com/challenges/tree-preorder-traversal/problem
+"""
+class Problem23():
+
+    def preOrder(self, root):
+        print(str(root.info) + " ", end="")
+        if root.left:
+            preOrder(root.left)
+        if root.right:
+            preOrder(root.right)
+
+    def inOrder(self, root):
+        if root.left:
+            preOrder(root.left)
+        print(str(root.info) + " ", end="")
+        if root.right:
+            preOrder(root.right)
+
+    def postOrder(self, root):
+        if root.left:
+            preOrder(root.left)
+        if root.right:
+            preOrder(root.right)
+        print(str(root.info) + " ", end="")
+
+
 class Test(unittest.TestCase):
 
     def test_problem_1(self):
