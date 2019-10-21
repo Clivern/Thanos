@@ -634,6 +634,28 @@ class Problem24():
             return -1
 
 
+"""
+BST Level-Order Traversal
+
+BFS — Breadth-First Search algorithm traverses the tree level by level. Depth by depth.
+
+https://www.hackerrank.com/challenges/30-binary-trees/problem
+"""
+class Problem25():
+
+    def levelOrder(self, root):
+        if not root:
+            return
+        queue = [root]
+        while len(queue):
+            n = queue.pop()
+            print(str(n.data) + " ", end='')
+            if n.left:
+                queue.insert(0, n.left)
+            if n.right:
+                queue.insert(0, n.right)
+
+
 class Test(unittest.TestCase):
 
     def test_problem_1(self):
