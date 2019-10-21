@@ -617,6 +617,24 @@ class Problem23():
         print(str(root.info) + " ", end="")
 
 
+"""
+Binary Tree Height
+
+https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree/problem
+"""
+class Problem24():
+
+    def height(self, root):
+        if root:
+            return 1 + max(
+                self.height(root.left),
+                self.height(root.right)
+            )
+        else:
+            return -1
+
+
+
 class Test(unittest.TestCase):
 
     def test_problem_1(self):
