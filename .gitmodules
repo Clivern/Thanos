@@ -17,3 +17,12 @@
 [submodule "careercup-CtCI-6th-Edition"]
 	path = careercup-CtCI-6th-Edition
 	url = https://github.com/careercup/CtCI-6th-Edition.git
+[submodule "TheAlgorithms-Python"]
+	path = TheAlgorithms-Python
+	url = https://github.com/TheAlgorithms/Python.git
+[submodule "TheAlgorithms-Go"]
+	path = TheAlgorithms-Go
+	url = https://github.com/TheAlgorithms/Go.git
+[submodule "TheAlgorithms-Javascript"]
+	path = TheAlgorithms-Javascript
+	url = https://github.com/TheAlgorithms/Javascript.git
