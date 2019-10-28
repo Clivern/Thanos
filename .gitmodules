@@ -26,3 +26,6 @@
 [submodule "TheAlgorithms-Javascript"]
 	path = TheAlgorithms-Javascript
 	url = https://github.com/TheAlgorithms/Javascript.git
+[submodule "Winterbe-Java8-Tutorial"]
+	path = Winterbe-Java8-Tutorial
+	url = https://github.com/winterbe/java8-tutorial.git
