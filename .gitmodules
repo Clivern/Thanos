@@ -29,3 +29,6 @@
 [submodule "Winterbe-Java8-Tutorial"]
 	path = Winterbe-Java8-Tutorial
 	url = https://github.com/winterbe/java8-tutorial.git
+[submodule "Tpunt-PHP7-Reference"]
+	path = Tpunt-PHP7-Reference
+	url = https://github.com/tpunt/PHP7-Reference.git
