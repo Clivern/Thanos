@@ -10,7 +10,9 @@ public class Core {
         System.out.println("Hello");
 
         // /////////////////////////
-        // BASICS https://beginnersbook.com/2017/08/variables-in-java/
+        // BASICS
+        // https://www.w3schools.com/java/java_intro.asp
+        // https://beginnersbook.com/2017/08/variables-in-java/
         // /////////////////////////
         int a;
         char b;
@@ -168,6 +170,8 @@ public class Core {
             "bye"
         };
 
+        System.out.println("st_arr Length: " + st_arr.length);
+
         for (String elem: st_arr) {
             System.out.println(elem);
         }
@@ -197,8 +201,16 @@ public class Core {
             System.out.println(p);
         }
 
+        int[][] myNumbers = { {1, 2, 3, 4}, {5, 6, 7} };
+
+        int xz = myNumbers[1][2];
+
+        System.out.println(xz); // Outputs 7
+
         // /////////////////////////
-        // OOP https://beginnersbook.com/2013/04/oops-concepts/
+        // OOP
+        // https://beginnersbook.com/2013/04/oops-concepts/
+        // https://www.w3schools.com/java/java_methods.asp
         // /////////////////////////
     }
 
